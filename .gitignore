@@ -137,3 +137,7 @@ images/sub/*
 images/data/*
 
 model/mhxy.h5
+
+.DS_Store
+*/.DS_Store
+config.py

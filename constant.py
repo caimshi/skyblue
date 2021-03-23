@@ -7,6 +7,7 @@ flag_dir_path = r'images/flag'
 sub_dir_path = r'images/sub'
 data_dir_path = r'images/data'
 store_dir_path = r'images/store'
+captcha_dir_path = r'images/captcha'
 
 model_dir_path = r'model'
 
@@ -161,8 +162,10 @@ trophy_flag_img_name = 'trophy_flag.jpg'
 trophy_flag_img_path = os.path.join(flag_dir_path,trophy_flag_img_name)
 closebutton_flag_img_name = 'closebutton_flag.jpg'
 closebutton_flag_img_path = os.path.join(flag_dir_path,closebutton_flag_img_name)
-validate_flag_img_name = 'validate_flag.jpg'
+validate_flag_img_name = 'vali_flag.jpg'
 validate_flag_img_path = os.path.join(flag_dir_path,validate_flag_img_name)
+captcha_flag_img_name = 'captcha_flag.jpg'
+captcha_flag_img_path = os.path.join(flag_dir_path,captcha_flag_img_name)
 
 #store
 validate1_store_img_name = 'validate1.jpg'
