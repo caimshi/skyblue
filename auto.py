@@ -51,6 +51,24 @@ def inputkey(key):
 def refresh():
     inputkey('F5')
 
+def paste():
+    km._key_down("ctrl")
+    km._key_up("ctrl")
+    time.sleep(random.random()/5)
+    km._key_down("v")
+    time.sleep(random.random()/5)
+    km._key_up("v")
+    time.sleep(random.random()/5)
+    time.sleep(random.random())
+    km._key_down("ctrl")
+    km._key_up("ctrl")
+
+def click_right_button():
+    km._right_button_down()
+    time.sleep(random.random()/21)
+    km._right_button_up()   
+
+
 def move_to(x,y):
     print(f'move to - > {(x,y)}')
     pyautogui.moveTo(x,y,duration=random.random()/2)

@@ -115,20 +115,37 @@ def compare_image(path_image1, path_image2):
 
 
 def acrop():
-    crop(c.img_sc_path,c.main_img_path,c.main_shape)
-    crop(c.img_sc_path,c.raid_img_path,c.raid_shape)
-    crop(c.img_sc_path,c.batload_img_path,c.batload_shape)
-    crop(c.img_sc_path,c.error_img_path,c.error_shape)
-    crop(c.img_sc_path,c.resload_img_path,c.resload_shape)
-    crop(c.img_sc_path,c.battle_img_path,c.battle_shape)
-    crop(c.img_sc_path,c.fa_img_path,c.fa_shape)
-    crop(c.img_sc_path,c.result_img_path,c.result_shape)
-    crop(c.img_sc_path,c.stepload_img_path,c.stepload_shape)
-    crop(c.img_sc_path,c.summon_img_path,c.summon_shape)
-    crop(c.img_sc_path,c.readysum_img_path,c.readysum_shape)
-    crop(c.img_sc_path,c.attack_img_path,c.attack_shape)
-    crop(c.img_sc_path,c.again_img_path,c.again_shape)
-    crop(c.img_sc_path,c.event_img_path,c.event_shape)
+    croppath = c.img_sc_path
+    # croppath = c.validate2_store_img_path
+    crop(croppath,c.main_img_path,c.main_shape)
+    crop(croppath,c.raid_img_path,c.raid_shape)
+    crop(croppath,c.raidid_img_path,c.raidid_shape)
+    crop(croppath,c.raidcheck_img_path,c.raidcheck_shape)
+    crop(croppath,c.batload_img_path,c.batload_shape)
+    crop(croppath,c.error_img_path,c.error_shape)
+    crop(croppath,c.resload_img_path,c.resload_shape)
+    crop(croppath,c.battle_img_path,c.battle_shape)
+    crop(croppath,c.battle2_img_path,c.battle2_shape)
+    crop(croppath,c.fa_img_path,c.fa_shape)
+    crop(croppath,c.result_img_path,c.result_shape)
+    crop(croppath,c.stepload_img_path,c.stepload_shape)
+    crop(croppath,c.summon_img_path,c.summon_shape)
+    crop(croppath,c.summon2_img_path,c.summon2_shape)
+    crop(croppath,c.readysum_img_path,c.readysum_shape)
+    crop(croppath,c.attack_img_path,c.attack_shape)
+    crop(croppath,c.again_img_path,c.again_shape)
+    crop(croppath,c.pending_img_path,c.pending_shape)
+    crop(croppath,c.event_img_path,c.event_shape)
+    crop(croppath,c.die_img_path,c.die_shape)
+    crop(croppath,c.nullep_img_path,c.nullep_shape)
+    crop(croppath,c.exup2_img_path,c.exup2_shape)
+    crop(croppath,c.hpcheck_img_path,c.hpcheck_shape)
+    crop(croppath,c.defeated_img_path,c.defeated_shape)
+    crop(croppath,c.valisend_img_path,c.valisend_shape)
+    crop(croppath,c.resume_img_path,c.resume_shape)
+    crop(croppath,c.quest_img_path,c.quest_shape)
+    crop(croppath,c.specialquest_img_path,c.specialquest_shape)
+    crop(croppath,c.friend_img_path,c.friend_shape)
 
 #### 是否在主页
 def is_main():
@@ -143,11 +160,77 @@ def is_main():
 #### 是否在讨伐
 def is_raid():
     rate = compare_image(c.raid_flag_img_path,c.raid_img_path)
-    if rate > 0.95:
+    if rate > 0.90:
         print('讨伐 状态:' + str(rate))
         return True
     else:
         print('非讨伐 状态:' + str(rate))
+        return False
+
+#### 是否在hpcheck
+def is_hpcheck():
+    rate = compare_image(c.hpcheck_flag_img_path,c.hpcheck_img_path)
+    if rate > 0.95:
+        print('hpcheck 状态:' + str(rate))
+        return True
+    else:
+        print('非hpcheck 状态:' + str(rate))
+        return False
+#### 是否在resume
+def is_resume():
+    rate = compare_image(c.resume_flag_img_path,c.resume_img_path)
+    rate2 = compare_image(c.resume2_flag_img_path,c.resume_img_path)
+    if rate > 0.95 or rate2 > 0.95:
+        print('resume 状态:' + str(rate))
+        return True
+    else:
+        print('非resume 状态:' + str(rate))
+        return False
+#### 是否在quest
+def is_quest():
+    rate = compare_image(c.quest_flag_img_path,c.quest_img_path)
+    if rate > 0.95:
+        print('quest 状态:' + str(rate))
+        return True
+    else:
+        print('非quest 状态:' + str(rate))
+        return False
+#### 是否在specialquest
+def is_specialquest():
+    rate = compare_image(c.specialquest_flag_img_path,c.specialquest_img_path)
+    if rate > 0.95:
+        print('specialquest 状态:' + str(rate))
+        return True
+    else:
+        print('非specialquest 状态:' + str(rate))
+        return False
+#### 是否在friend
+def is_friend():
+    rate = compare_image(c.friend_flag_img_path,c.friend_img_path)
+    if rate > 0.95:
+        print('friend 状态:' + str(rate))
+        return True
+    else:
+        print('非friend 状态:' + str(rate))
+        return False
+
+#### 是否在讨伐id
+def is_raidid():
+    rate = compare_image(c.raidid_flag_img_path,c.raidid_img_path)
+    if rate > 0.95:
+        print('讨伐id 状态:' + str(rate))
+        return True
+    else:
+        print('非讨伐id 状态:' + str(rate))
+        return False
+#### 是否在raidcheck
+def is_raidcheck():
+    rate = compare_image(c.raidcheck_flag_img_path,c.raidcheck_img_path)
+    if rate > 0.95:
+        print('raidcheck 状态:' + str(rate))
+        return True
+    else:
+        print('非raidcheck 状态:' + str(rate))
         return False
 
 #### 是否在batload
@@ -200,6 +283,17 @@ def is_event():
         print('非event 状态:' + str(rate))
         return False
 
+#### 是否在defeated
+def is_defeated():
+    rate1 = compare_image(c.defeated_flag_img_path,c.defeated_img_path)
+    rate2 = compare_image(c.defeated2_flag_img_path,c.defeated_img_path)
+    if rate1 > 0.95 or rate2 > 0.95:
+        print('defeated 状态:' + str(rate1) + ' ' + str(rate2))
+        return True
+    else:
+        print('非defeated 状态:' + str(rate1) + ' ' + str(rate2))
+        return False
+
 #### 是否在战斗
 def is_battle():
     rate = compare_image(c.battle_flag_img_path,c.battle_img_path)
@@ -208,6 +302,27 @@ def is_battle():
         return True
     else:
         print('非战斗 状态:' + str(rate))
+        return False
+
+#### 是否在exup
+def is_exup2():
+    rate = compare_image(c.exup2_flag_img_path,c.exup2_img_path)
+    if rate > 0.95:
+        print('exup 状态:' + str(rate))
+        return True
+    else:
+        print('非exup 状态:' + str(rate))
+        return False
+
+#### 是否在战斗
+def is_battle2():
+    rate1 = compare_image(c.battle2_flag_1_img_path,c.battle2_img_path)
+    rate2 = compare_image(c.battle2_flag_2_img_path,c.battle2_img_path)
+    if rate1 > 0.95 or rate2 > 0.95:
+        print('战斗 状态:' + str(rate1) + ' ' + str(rate2))
+        return True
+    else:
+        print('非战斗 状态:' + str(rate1) + ' ' + str(rate2))
         return False
 
 #### 是否在fa 1是2否0未知
@@ -245,6 +360,35 @@ def is_result():
         print('非result 状态:' + str(rate))
         return False
 
+#### 是否在die
+def is_die():
+    rate = compare_image(c.die_flag_img_path,c.die_img_path)
+    if rate > 0.95:
+        print('die 状态:' + str(rate))
+        return True
+    else:
+        print('非die 状态:' + str(rate))
+        return False
+def is_die2():
+    rate = compare_image(c.die2_flag_img_path,c.stepload_img_path)
+    if rate > 0.95:
+        print('die2 状态:' + str(rate))
+        return True
+    else:
+        print('非die2 状态:' + str(rate))
+        return False
+
+#### 是否在nullep
+def is_nullep():
+    rate = compare_image(c.nullep_flag_img_path,c.nullep_img_path)
+    if rate > 0.95:
+        print('nullep 状态:' + str(rate))
+
+        return True
+    else:
+        print('非nullep 状态:' + str(rate))
+        return False
+
 #### 是否在agrinresult
 def is_again_result():
     rate = compare_image(c.again_flag_img_path,c.again_img_path)
@@ -255,14 +399,25 @@ def is_again_result():
         print('非again_result 状态:' + str(rate))
         return False
 
-#### 是否在summon
-def is_summon():
-    rate = compare_image(c.summon_flag_img_path,c.summon_img_path)
-    if rate > 0.90:
-        print('summon 状态:' + str(rate))
+#### 是否在pendingresult
+def is_pending_result():
+    rate = compare_image(c.pending_flag_img_path,c.pending_img_path)
+    if rate > 0.95:
+        print('pending_result 状态:' + str(rate))
         return True
     else:
-        print('非summon 状态:' + str(rate))
+        print('非pending_result 状态:' + str(rate))
+        return False
+
+#### 是否在summon
+def is_summon():
+    rate1 = compare_image(c.summon_flag_img_path,c.summon_img_path)
+    rate2 = compare_image(c.summon2_flag_img_path,c.summon2_img_path)
+    if rate1 > 0.90 or rate2>0.90:
+        print('summon 状态:' +  str(rate2) + ' ' + str(rate1))
+        return True
+    else:
+        print('非summon 状态:' +  str(rate2) + ' ' + str(rate1))
         return False
 
 #### 是否在readysum
@@ -277,18 +432,32 @@ def is_readysum():
 
 def is_exp_window():
     explocation,expscore = template_match(c.exp_flag_img_path, c.img_sc_path)
-    print('exp弹窗 打分', explocation, expscore)
-    return expscore > 3
+    exp2location,exp2score = template_match(c.exp2_flag_img_path, c.img_sc_path)
+    print('exp弹窗 打分', explocation, expscore, exp2location, exp2score)
+    return expscore > 4 or exp2score>4
 
 def is_honor_window():
     honorlocation,honorscore = template_match(c.honor_flag_img_path, c.img_sc_path)
     print('honor弹窗 打分', honorlocation, honorscore)
     return honorscore > 3
+def is_sixiang_window():
+    sixianglocation,sixiangscore = template_match(c.sixiang_flag_img_path, c.img_sc_path)
+    print('sixiang弹窗 打分', sixianglocation, sixiangscore)
+    return sixiangscore > 3
+
+def is_rupie_window():
+    rupielocation,rupiescore = template_match(c.rupie_flag_img_path, c.img_sc_path)
+    print('rupie弹窗 打分', rupielocation, rupiescore)
+    return rupiescore > 3
 
 def is_nightmare_window():
     nightmarelocation,nightmarescore = template_match(c.nightmare_flag_img_path, c.img_sc_path)
     print('nightmare弹窗 打分', nightmarelocation, nightmarescore)
     return nightmarescore > 3
+def is_extreme_window():
+    extremelocation,extremescore = template_match(c.extreme_flag_img_path, c.img_sc_path)
+    print('extreme弹窗 打分', extremelocation, extremescore)
+    return extremescore > 3
 
 def is_halfhong_window():
     halfhonglocation,halfhongscore = template_match(c.halfhong_flag_img_path, c.img_sc_path)
@@ -300,10 +469,41 @@ def is_halfhongrecover_window():
     print('halfhongrecover弹窗 打分', halfhongrecoverlocation, halfhongrecoverscore)
     return halfhongrecoverscore > 3
 
+def is_douzi_window():
+    douzilocation,douziscore = template_match(c.douzi_flag_img_path, c.img_sc_path)
+    print('douzi弹窗 打分', douzilocation, douziscore)
+    return douziscore > 3
+
+def is_douzirecover_window():
+    douzirecoverlocation,douzirecoverscore = template_match(c.douzirecover_flag_img_path, c.img_sc_path)
+    print('douzirecover弹窗 打分', douzirecoverlocation, douzirecoverscore)
+    return douzirecoverscore > 3
+
 def is_neterror_window():
     neterrorlocation,neterrorscore = template_match(c.neterror_flag_img_path, c.img_sc_path)
     print('neterror弹窗 打分', neterrorlocation, neterrorscore)
     return neterrorscore > 4
+
+def is_iderror_window():
+    iderrorlocation,iderrorscore = template_match(c.iderror_flag_img_path, c.img_sc_path)
+    print('iderror弹窗 打分', iderrorlocation, iderrorscore)
+    return iderrorscore > 4
+
+def is_black_window():
+    blacklocation,blackscore = template_match(c.black_flag_img_path, c.img_sc_path)
+    print('black弹窗 打分', blacklocation, blackscore)
+    return blackscore > 5 
+
+def is_threeerror_window():
+    threeerrorlocation,threeerrorscore = template_match(c.threeerror_flag_img_path, c.img_sc_path)
+    okx, oky = find_xy(c.ok_flag_img_path)
+    print('threeerror弹窗 打分', threeerrorlocation, threeerrorscore, okx, oky)
+    return threeerrorlocation[0]>10 and threeerrorlocation[1]<700 and threeerrorlocation[1]>200 and threeerrorscore > 4 and okx>0 and oky>0
+
+# def is_defeated_window():
+#     defeatedlocation,defeatedscore = template_match(c.defeated_flag_img_path, c.img_sc_path)
+#     print('defeated弹窗 打分', defeatedlocation, defeatedscore)
+#     return defeatedscore > 4
 
 def is_trophy_window():
     trophylocation,trophyscore = template_match(c.trophy_flag_img_path, c.img_sc_path)
@@ -313,8 +513,14 @@ def is_trophy_window():
 def is_validate():
     location,score = template_match(c.validate_flag_img_path, c.img_sc_path)
     okx, oky = find_xy(c.ok_flag_img_path)
-    print('验证码 打分', location, score, okx, oky)
-    return score > 4 and okx>0 and oky>0
+    rate = compare_image(c.valisend_flag_img_path,c.valisend_img_path)
+    print('验证码 打分', location, score, okx, oky, rate)
+    if rate > 0.90:
+        return True
+    else:
+        return False
+    return location[0]>10 and location[1]<700 and location[1]>200 and score > 4 
+
 
 
 # def is_scene(scene):
